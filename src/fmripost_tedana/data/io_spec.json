@@ -64,99 +64,120 @@
                     ".nii"
                 ]
             },
-            "t2starmap_boldref": {
-                "datatype": "func",
-                "echo": null,
-                "part": [
-                    "mag",
-                    null
-                ],
-                "space": "boldref",
-                "desc": "preproc",
-                "suffix": "T2starmap",
-                "extension": [
-                    ".nii.gz",
-                    ".nii"
-                ]
-            }
-        },        
-        "raw": {
-            "bold_echoes": {
-                "datatype": "func",
-                "part": [
-                    "mag",
-                    null
-                ],
-                "suffix": "bold",
-                "extension": [
-                    ".nii.gz",
-                    ".nii"
-                ]
-            },
-            "bold_events": {
-                "datatype": "func",
-                "echo": null,
-                "part": [
-                    "mag",
-                    null
-                ],
-                "suffix": "events",
-                "extension": "tsv"
-            },            
-            "anat": {
+            "anat_dseg": {
                 "datatype": "anat",
-                "echo": null,
-                "part": [
-                    "mag",
-                    null
-                ],
-                "suffix": [
-                    "T1w",
-                    "T2w"
-                ],
-                "extension": [
-                    ".nii.gz",
-                    ".nii"
-                ]
-            }
-        },
-        "transforms": {
-            "bold_hmc": {
-                "datatype": "func",
-                "from": "orig",
-                "to": "boldref",
-                "mode": "image",
-                "suffix": "xfm",
-                "extension": ".txt"
-            },
-            "boldref2anat": {
-                "datatype": "func",
-                "from": "boldref",
-                "to": ["anat", "T1w", "T2w"],
-                "mode": "image",
-                "suffix": "xfm",
-                "extension": ".txt"
-            },
-            "boldref2fmap": {
-                "datatype": "func",
-                "from": "orig",
-                "mode": "image",
-                "suffix": "xfm",
-                "extension": ".txt"
-            },
-            "anat2mni152nlin6asym": {
-                "datatype": "anat",
-                "from": ["anat", "T1w", "T2w"],
-                "to": "MNI152NLin6Asym",
                 "space": null,
                 "res": null,
                 "den": null,
-                "mode": "image",
                 "desc": null,
-                "suffix": "xfm",
-                "extension": ".h5"
+                "suffix": "dseg",
+                "extension": [
+                    ".nii.gz",
+                    ".nii"
+                ]
             }
         },
+        "t2starmap_boldref": {
+            "datatype": "func",
+            "echo": null,
+            "part": [
+                "mag",
+                null
+            ],
+            "space": "boldref",
+            "desc": "preproc",
+            "suffix": "T2starmap",
+            "extension": [
+                ".nii.gz",
+                ".nii"
+            ]
+        }
+    },
+    "raw": {
+        "bold_echoes": {
+            "datatype": "func",
+            "part": [
+                "mag",
+                null
+            ],
+            "suffix": "bold",
+            "extension": [
+                ".nii.gz",
+                ".nii"
+            ]
+        },
+        "bold_events": {
+            "datatype": "func",
+            "echo": null,
+            "part": [
+                "mag",
+                null
+            ],
+            "suffix": "events",
+            "extension": "tsv"
+        },
+        "anat": {
+            "datatype": "anat",
+            "echo": null,
+            "part": [
+                "mag",
+                null
+            ],
+            "suffix": [
+                "T1w",
+                "T2w"
+            ],
+            "extension": [
+                ".nii.gz",
+                ".nii"
+            ]
+        }
+    },
+    "transforms": {
+        "bold_hmc": {
+            "datatype": "func",
+            "from": "orig",
+            "to": "boldref",
+            "mode": "image",
+            "suffix": "xfm",
+            "extension": ".txt"
+        },
+        "boldref2anat": {
+            "datatype": "func",
+            "from": "boldref",
+            "to": [
+                "anat",
+                "T1w",
+                "T2w"
+            ],
+            "mode": "image",
+            "suffix": "xfm",
+            "extension": ".txt"
+        },
+        "boldref2fmap": {
+            "datatype": "func",
+            "from": "orig",
+            "mode": "image",
+            "suffix": "xfm",
+            "extension": ".txt"
+        },
+        "anat2mni152nlin6asym": {
+            "datatype": "anat",
+            "from": [
+                "anat",
+                "T1w",
+                "T2w"
+            ],
+            "to": "MNI152NLin6Asym",
+            "space": null,
+            "res": null,
+            "den": null,
+            "mode": "image",
+            "desc": null,
+            "suffix": "xfm",
+            "extension": ".h5"
+        }
+    },
     "entities": [
         {
             "name": "datatype",
@@ -179,7 +200,7 @@
             "name": "threshold",
             "pattern": "(?:^|_)thresh-([a-zA-Z0-9]+)"
         }
-      ],
+    ],
     "patterns": [
         "sub-{subject}[/ses-{session}]/{datatype<func>|func}/sub-{subject}[_ses-{session}]_task-{task}[_acq-{acquisition}][_ce-{ceagent}][_rec-{reconstruction}][_dir-{direction}][_run-{run}][_echo-{echo}][_part-{part}][_chunk-{chunk}][_space-{space}][_res-{res}][_desc-{desc}]_{suffix<bold|boldref|dseg|mask>}.{extension<nii|nii.gz|json>|nii.gz}",
         "sub-{subject}[/ses-{session}]/{datatype<func>|func}/sub-{subject}[_ses-{session}]_task-{task}[_acq-{acquisition}][_ce-{ceagent}][_rec-{reconstruction}][_dir-{direction}][_run-{run}][_echo-{echo}][_part-{part}][_chunk-{chunk}][_space-{space}][_cohort-{cohort}][_res-{res}][_stat-{statistic}][_desc-{desc}]_{suffix<mixing>}.{extension<nii|nii.gz|json>|nii.gz}",
