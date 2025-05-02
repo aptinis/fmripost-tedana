@@ -91,91 +91,81 @@
                 ".nii.gz",
                 ".nii"
             ]
-        }
-    },
-    "raw": {
-        "bold_echoes": {
-            "datatype": "func",
-            "part": [
-                "mag",
-                null
-            ],
-            "suffix": "bold",
-            "extension": [
-                ".nii.gz",
-                ".nii"
-            ]
         },
-        "bold_events": {
-            "datatype": "func",
-            "echo": null,
-            "part": [
-                "mag",
-                null
-            ],
-            "suffix": "events",
-            "extension": "tsv"
+        "raw": {
+            "bold_echoes": {
+                "datatype": "func",
+                "part": [
+                    "mag",
+                    null
+                ],
+                "suffix": "bold",
+                "extension": [
+                    ".nii.gz",
+                    ".nii"
+                ]
+            },
+            "anat": {
+                "datatype": "anat",
+                "echo": null,
+                "part": [
+                    "mag",
+                    null
+                ],
+                "suffix": [
+                    "T1w",
+                    "T2w"
+                ],
+                "extension": [
+                    ".nii.gz",
+                    ".nii"
+                ]
+            }
         },
-        "anat": {
-            "datatype": "anat",
-            "echo": null,
-            "part": [
-                "mag",
-                null
-            ],
-            "suffix": [
-                "T1w",
-                "T2w"
-            ],
-            "extension": [
-                ".nii.gz",
-                ".nii"
-            ]
-        }
-    },
-    "transforms": {
-        "bold_hmc": {
-            "datatype": "func",
-            "from": "orig",
-            "to": "boldref",
-            "mode": "image",
-            "suffix": "xfm",
-            "extension": ".txt"
-        },
-        "boldref2anat": {
-            "datatype": "func",
-            "from": "boldref",
-            "to": [
-                "anat",
-                "T1w",
-                "T2w"
-            ],
-            "mode": "image",
-            "suffix": "xfm",
-            "extension": ".txt"
-        },
-        "boldref2fmap": {
-            "datatype": "func",
-            "from": "orig",
-            "mode": "image",
-            "suffix": "xfm",
-            "extension": ".txt"
-        },
-        "anat2mni152nlin6asym": {
-            "datatype": "anat",
-            "from": [
-                "anat",
-                "T1w",
-                "T2w"
-            ],
-            "to": "MNI152NLin6Asym",
-            "space": null,
-            "res": null,
-            "den": null,
-            "mode": "image",
-            "desc": null,
-            "suffix": "xfm",
-            "extension": ".h5"
+        "transforms": {
+            "bold_hmc": {
+                "datatype": "func",
+                "from": "orig",
+                "to": "boldref",
+                "mode": "image",
+                "suffix": "xfm",
+                "extension": ".txt"
+            },
+            "boldref2anat": {
+                "datatype": "func",
+                "from": "boldref",
+                "to": [
+                    "anat",
+                    "T1w",
+                    "T2w"
+                ],
+                "mode": "image",
+                "suffix": "xfm",
+                "extension": ".txt"
+            },
+            "boldref2fmap": {
+                "datatype": "func",
+                "from": "orig",
+                "mode": "image",
+                "suffix": "xfm",
+                "extension": ".txt"
+            },
+            "anat2mni152nlin6asym": {
+                "datatype": "anat",
+                "from": [
+                    "anat",
+                    "T1w",
+                    "T2w"
+                ],
+                "to": "MNI152NLin6Asym",
+                "space": null,
+                "res": null,
+                "den": null,
+                "mode": "image",
+                "desc": null,
+                "suffix": "xfm",
+                "extension": ".h5"
+            }
         }
     },
     "entities": [
